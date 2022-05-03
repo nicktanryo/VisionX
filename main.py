@@ -19,6 +19,8 @@ class MyApp(tk.Tk):
 
         self.widget_menu_bar = Menu(parent=self.main_frame, option_var=self.application_selection, on_change=self.on_change_selection)
         self.widget_menu_bar.main_frame.pack(side=tk.TOP, fill=tk.X)
+        self.widget_menu_bar.main_frame.pack_propagate(0)
+        
         self.widget_application = Application(parent=self.main_frame)
         self.widget_application.main_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand="True")
 
