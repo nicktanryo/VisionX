@@ -9,7 +9,7 @@ class Menu():
         Setting.OPTION_IMAGE_SHARPENING,
         Setting.OPTION_PANORAMA,
         Setting.OPTION_HDR_IMAGE,
-        Setting.OPTION_SRCNN
+        Setting.OPTION_SRCNN,
     ]
 
     def __init__(self, parent, option_var, on_change) -> None:

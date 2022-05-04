@@ -1,9 +1,11 @@
 import tkinter as tk
 from turtle import heading
 
+from setting import Setting
+
 class Application():
-    width = 1280
-    height = 670
+    width = Setting.APPLICATION_WIDTH
+    height = Setting.APPLICATION_HEIGHT
 
     def __init__(self, parent) -> None:
-        self.main_frame = tk.Frame(parent, width=self.width, height=self.height, background="#555")
+        self.main_frame = tk.Frame(parent, width=self.width, height=self.height, background=Setting.COLOR_GRAY)
