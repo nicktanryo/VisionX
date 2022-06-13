@@ -9,23 +9,25 @@ class MyApp(tk.Tk):
     width = Setting.MENU_WIDTH
     height = Setting.MENU_HEIGHT
 
+    default_operator = Setting.OPTION_IMAGE_SHARPENING
+
     def __init__(self, *args, **kwargs) -> None:
         tk.Tk.__init__(self, *args, **kwargs)
 
         self.main_frame = tk.Frame(self, width=self.width, height=self.height)
         self.main_frame.pack(fill=tk.BOTH, expand=tk.TRUE)
 
-        self.application_selection = tk.StringVar(value=Setting.OPTION_IMAGE_SHARPENING)
+        self.application_selection = tk.StringVar(value=self.default_operator)
 
         self.widget_menu_bar = Menu(parent=self.main_frame, option_var=self.application_selection, on_change=self.on_change_selection)
         self.widget_menu_bar.main_frame.pack(side=tk.TOP, fill=tk.X)
         self.widget_menu_bar.main_frame.pack_propagate(0)
 
-        self.widget_application = Application(parent=self.main_frame)
+        self.widget_application = Application(parent=self.main_frame, default_operator=self.default_operator)
         self.widget_application.main_frame.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=tk.TRUE)
 
     def on_change_selection(self):
-        print(str(self.application_selection.get()))
+        self.widget_application.application_onchange_selection(self.application_selection.get())
 
     @property
     def centre_position(self):
